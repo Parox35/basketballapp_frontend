@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { Field, form } from '@angular/forms/signals';
 import { UserRegister, userRegisterSchema } from '../../../models/authRegistration';
-import { AuthService } from '../../../services/auth-service';
+import { AuthService } from '../../../services/authService/auth-service';
 import { Router } from '@angular/router';
 
 @Component({

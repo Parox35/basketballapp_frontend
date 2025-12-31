@@ -1,8 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UserRegister } from '../models/authRegistration';
-import { AuthResponseDto,  } from '../models/dto/authResponseDto';
+import { UserRegister } from '../../models/authRegistration';
+import { AuthResponseDto,  } from '../../models/dto/authResponseDto';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +12,8 @@ export class AuthService {
   private readonly apiUrl = 'http://localhost:8080/api/auth';
   private readonly headers = { 'Content-Type': 'application/json' };
 
-  // Check if user is authenticated
-  isAuthenticated(): Observable<boolean> {
+  // Check if user is authentificated
+  isAuthentificated(): Observable<boolean> {
     return this.http.get<boolean>(`${this.apiUrl}/is-auth`, {
       withCredentials: true,
       headers: this.headers

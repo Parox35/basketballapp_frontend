@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+h1, p, div, label, input {
+    font-family: 'Arial', sans-serif !important;
+    color: #0D0D0D !important;
+}
+
+a {
+    color: #F2CB07 !important;
+    text-decoration: none !important;
+}
+
+/*
+#A68F1B
+#594D12
+#F2F2F2
+*/

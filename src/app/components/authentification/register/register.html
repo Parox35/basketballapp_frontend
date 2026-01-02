@@ -1,0 +1,146 @@
+<div class="container mt-5 col-md-6 offset-md-3">
+    <div class="card">
+        <div class="text-center">
+            <img src="logo.png" alt="Logo" class="img-fluid mt-3 card-img-top" style="width: fit-content; height: fit-content;" />
+        </div>
+        <hr />
+        <div class="card-body">
+            <div class="text-center mb-4 card-title">
+                <h1 class="text-center">Inscription</h1>
+                <small>Veuillez remplir le formulaire pour créer un compte.</small>
+            </div>
+            <form (submit)="onSubmit($event)">
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="firstName" class="col-form-label">Prénom</label>
+                        <div class="col-sm-10">
+                            <input
+                                id="firstName"
+                                type="text"
+                                placeholder="prénom"
+                                [field]="registerForm.firstName"
+                                class="form-control col-sm-10"
+                                (blur)="registerForm.firstName().markAsTouched()"
+                                [class.is-invalid]="registerForm.firstName().touched() && registerForm.firstName().invalid()"
+                            />
+                            @for (error of registerForm.firstName().errors(); track error.kind) {
+                                <small class="invalid-feedback">{{ error.message }}</small>
+                            }
+                        </div>
+                    </div>
+                    <div class="form-group col">
+                        <label for="lastName" class="col-form-label">Nom</label>
+                        <div class="col-sm-10">
+                            <input
+                                type="text"
+                                id="lastName"
+                                placeholder="Nom"
+                                [field]="registerForm.lastName"
+                                class="form-control"
+                                (blur)="registerForm.lastName().markAsTouched()"
+                                [class.is-invalid]="registerForm.lastName().touched() && registerForm.lastName().invalid()"
+                            />
+                            @for (error of registerForm.lastName().errors(); track error.kind) {
+                                <small class="invalid-feedback">{{ error.message }}</small>
+                            }
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group mt-3">
+                    <label for="email" class="col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input
+                            id="email"
+                            type="email"
+                            placeholder="email@gmail.com"
+                            [field]="registerForm.email"
+                            class="form-control"
+                            (blur)="registerForm.email().markAsTouched()"
+                            [class.is-invalid]="registerForm.email().touched() && registerForm.email().invalid()"
+                        />
+                        @for (error of registerForm.email().errors(); track error.kind) {
+                            <small class="invalid-feedback">{{ error.message }}</small>
+                        }
+                    </div>
+                </div>
+                
+                <div class="row mt-3">
+                    <div class="form-group col">
+                        <label for="password" class="col-form-label">Mot de passe</label>
+                        <div class="col-sm-10">
+                            <input 
+                                id="password"
+                                type="password"
+                                placeholder="*********"
+                                [field]="registerForm.password"
+                                class="form-control"
+                                (blur)="registerForm.password().markAsTouched()"
+                                [class.is-invalid]="registerForm.password().touched() && registerForm.password().invalid()"
+                            />
+                            @for (error of registerForm.password().errors(); track error.kind) {
+                                <small class="invalid-feedback">{{ error.message }}</small>
+                            }
+                        </div>
+                    </div>
+                    <div class="form-group col">
+                        <label for="passwordConfirm" class="col-form-label">Confirmer le mot de passe</label>
+                        <div class="col-sm-10">
+                            <input 
+                                id="passwordConfirm"
+                                type="password"
+                                placeholder="*********"
+                                [field]="registerForm.passwordConfirm"
+                                class="form-control"
+                                (blur)="registerForm.passwordConfirm().markAsTouched()"
+                                [class.is-invalid]="registerForm.passwordConfirm().touched() && registerForm.passwordConfirm().invalid()"
+                            />
+                            @for (error of registerForm.passwordConfirm().errors(); track error.kind) {
+                                <small class="invalid-feedback">{{ error.message }}</small>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="dateOfBirth" class="col-form-label">Date de naissance</label>
+                    <div class="col-sm-10">
+                        <input 
+                            id="dateOfBirth"
+                            type="date"
+                            [field]="registerForm.dateOfBirth"
+                            class="form-control"
+                            (blur)="registerForm.dateOfBirth().markAsTouched()"
+                            [class.is-invalid]="registerForm.dateOfBirth().touched() && registerForm.dateOfBirth().invalid()"
+                        />
+                        @for (error of registerForm.dateOfBirth().errors(); track error.kind) {
+                            <small class="invalid-feedback">{{ error.message }}</small>
+                        }
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="phoneNumber" class="col-form-label">Numéro de téléphone</label>
+                    <div class="col-sm-10">
+                        <input
+                            id="phoneNumber"
+                            type="tel"
+                            placeholder="0234567891"
+                            [field]="registerForm.phoneNumber"
+                            class="form-control"
+                            (blur)="registerForm.phoneNumber().markAsTouched()"
+                            [class.is-invalid]="registerForm.phoneNumber().touched() && registerForm.phoneNumber().invalid()"
+                        />
+                        @for (error of registerForm.phoneNumber().errors(); track error.kind) {
+                            <small class="invalid-feedback">{{ error.message }}</small>
+                        }
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-dark mt-3" [disabled]="registerForm().invalid()">S'inscrire</button>
+                </div>
+            </form>
+            <div class="text-center mt-3">
+                <small>Déjà un compte ? <a href="/login">Se connecter</a></small>
+            </div>
+    </div>
+</div>

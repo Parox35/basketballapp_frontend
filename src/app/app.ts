@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from "./components/navbar/navbar";
+import { AuthService } from './services/authService/auth-service';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,5 @@ import { Navbar } from "./components/navbar/navbar";
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('basket-frontend');
+  protected readonly authService = inject(AuthService);
 }
